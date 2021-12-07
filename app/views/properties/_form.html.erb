@@ -1,0 +1,56 @@
+<%= form_with(model: property) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :property %>
+    <%= form.text_field :property, class:"form-control", placeholder:"Property" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :rent %>
+    <%= form.number_field :rent, class:"form-control", placeholder:"Rent" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :address %>
+    <%= form.text_field :address, class:"form-control",placeholder:"Address" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :building_age %>
+    <%= form.number_field :building_age, class:"form-control", placeholder:"Building age"  %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :remarks %>
+    <%= form.text_field :remarks, class:"form-control", value:"Remarks" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :property_user_id,type: :hidden, class:"form-control", value:current_user.id %>
+  </div>
+
+
+
+<br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

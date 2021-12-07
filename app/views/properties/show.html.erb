@@ -1,0 +1,12 @@
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @property.property %></h1>
+  <p class="lead">
+    <%= @property.rent %>|
+      <%= @property.address %>|
+      <%= @property.building_age %>|
+        <%= @property.remarks %>
+  </p>
+    <%= link_to 'Edit', edit_property_path(@property), class:"btn btn-secondary" %>
+  <%= link_to 'Back', properties_path, class:"btn btn-dark" %>
+</div>
